@@ -21,8 +21,8 @@
     "clientMinVersion": 1,
     "summary": "",
     "icon": {
-        "glyph": "heart.text.square",
-        "color": "#FF6633"
+        "glyph": "trash",
+        "color": "#FF3300"
     },
     "clientVersion": 592,
     "name": "b23clean"
