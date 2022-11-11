@@ -1,3 +1,5 @@
+const { Toast } = require("./libs/easy-jsbox")
+
 function getUrls() {
     const input = $actions.inputValue ?? $clipboard.text ?? ""
     const regex = /(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([:0-9])*([\/\w\#\.\-\?\=\&])*\s?/gi
@@ -7,11 +9,11 @@ function getUrls() {
 async function main() {
     const b23url = getUrls()[0]
     if (!b23url) {
-        $ui.warning($l10n("b23clear.noUrl"))
+        Toast.warning($l10n("b23clear.noUrl"))
     } else if (b23url.indexOf("bilibili.com") !== -1 && b23url.indexOf("b23.tv") !== -1) {
-        $ui.warning($l10n("b23clear.noBiliUrl"))
+        Toast.warning($l10n("b23clear.noBiliUrl"))
     } else {
-        $ui.toast($l10n("b23clear.converting"))
+        Toast.toast($l10n("b23clear.converting"))
         let url
         if (b23url.indexOf("b23.tv")) {
             const resp = await $http.get(b23url)
@@ -28,7 +30,7 @@ async function main() {
                     title: $l10n("COPY"),
                     handler: () => {
                         $clipboard.text = bvUrl
-                        $ui.success($l10n("COPIED"))
+                        Toast.success($l10n("COPIED"))
                     }
                 }
             ]
