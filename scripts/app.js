@@ -17,7 +17,6 @@ function getUrls() {
 
 async function main() {
     const b23url = getUrls()[0]
-    console.log(b23url)
     if (!b23url) {
         Toast.warning($l10n("b23clear.noUrl"))
     } else if (b23url.indexOf("bilibili.com") === -1 && b23url.indexOf("b23.tv") === -1) {
