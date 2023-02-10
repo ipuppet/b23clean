@@ -35,7 +35,7 @@ async function cleanUrl(b23url) {
 }
 
 async function main() {
-    const loading = Toast.info($l10n("b23clean.converting"), { displayTime: 100 })
+    const loading = Toast.info($l10n("b23clean.converting"), { show: false })
 
     try {
         const b23url = getUrls()
@@ -55,6 +55,7 @@ async function main() {
             throw new Error($l10n("b23clean.noBiliUrl"))
         }
 
+        loading.show()
         url = await cleanUrl(url)
         loading.remove()
 
